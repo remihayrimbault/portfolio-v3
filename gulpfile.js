@@ -7,7 +7,8 @@ const plumber = require('gulp-plumber');
 const imagemin = require('gulp-imagemin');
 const autoprefixer = require('gulp-autoprefixer');
 const browsersync = require('browser-sync').create();
-const sass = require('gulp-sass');
+//const sass = require('gulp-sass');
+var sass = require('gulp-dart-sass');
 
 const distFolder = './dist/';
 const srcFolder = './src/';
@@ -73,7 +74,7 @@ function scss() {
   return (
     gulp
       .src(paths.scss.src)
-      .pipe(sass({ outputStyle: 'compact' }).on('error', sass.logError))
+      .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
       .pipe(gulp.dest(paths.scss.dest))
       .pipe(browsersync.stream())
   );
