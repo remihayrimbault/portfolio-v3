@@ -31,8 +31,8 @@ const paths = {
     dest: './dist/assets/img/',
   },
   font: {
-    src: './src/assets/font/**/*',
-    dest: './dist/assets/font/',
+    src: './src/assets/fonts/**/*',
+    dest: './dist/assets/fonts/',
   },
 };
 
@@ -70,15 +70,25 @@ function html() {
   );
 }
 
+function html2() {
+  return (
+    gulp
+      .src(paths.html.src, { since: gulp.lastRun(html2) })
+     
+      .pipe(browsersync.stream())
+  );
+}
+
 function scss() {
   return (
     gulp
       .src(paths.scss.src)
-      .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+      .pipe(sass().on('error', sass.logError))
       .pipe(gulp.dest(paths.scss.dest))
       .pipe(browsersync.stream())
   );
 }
+
 
 
 function css() {
@@ -115,8 +125,8 @@ function watchFiles() {
 
 function watch() {
   gulp.watch(paths.scss.src, scss);
-  gulp.watch(paths.css.src, css);
-  gulp.watch(paths.html.src, html);
+  gulp.watch(paths.html.src,html2);
+
 }
 
 
@@ -133,7 +143,7 @@ function font() {
 const serie = gulp.series(clear, html, scss, css, images, font);
 const build = gulp.series(serie, gulp.parallel(watchFiles, browserSync));
 
-const dev = gulp.series(gulp.series(scss, css, html), gulp.parallel(watch, browserSyncDev));
+const dev = gulp.series(scss, gulp.parallel(watch, browserSyncDev));
 
 
 // exports
