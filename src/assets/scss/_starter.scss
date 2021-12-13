@@ -1,20 +1,19 @@
+html,
+body,
+#game-container {
+  margin: 0;
+  padding: 0;
+}
 
-/*******************************/
-/* Starter: Prsentation       */
-/*****************************/
-.presentation{
-  height: 100vh;
+#game-container {
+  min-width: 100vw;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
-.presentation h1{
-  font-size: 8rem;
-  padding-bottom: 10rem; 
+#game-container>canvas {
+  border-radius: 5px;
+  cursor: pointer;
 }
-
-/********************/
-/* HEADER:         */
-/******************/
