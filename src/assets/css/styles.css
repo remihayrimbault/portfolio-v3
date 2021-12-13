@@ -254,6 +254,10 @@ canvas {
   display: none;
 }
 
+.card > .img {
+  display: none;
+}
+
 .card > .bigdescription {
   display: none;
 }
@@ -332,6 +336,10 @@ canvas {
   bottom: -100vh;
   left: 0;
   transition: all 0.3s ease-in-out;
+}
+#show #show__image {
+  width: 25%;
+  margin: 0 auto;
 }
 
 #show > #showClose {
