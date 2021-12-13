@@ -1,3 +1,7 @@
+@font-face {
+  font-family: Aileron;
+  src:url("../fonts/Aileron-Black.otf");
+}
 
 /* Regles generales */
 *, *:after, *:before {
@@ -6,11 +10,16 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 body {
- 
-  font-size: 1.4rem;            /* 14px par défaut */
-  /*font-family: 'Noto sans', sans-serif;*/
+
+  font-size: 1.4rem;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-family: Aileron, serif;
+  overflow-x: hidden;
 }
 
 a, a:hover, a:visited{                /* ATTENTION LES LIENS SONT BLANC DANS CE MODELE*/
@@ -20,7 +29,7 @@ a, a:hover, a:visited{                /* ATTENTION LES LIENS SONT BLANC DANS CE 
 img{
   max-width:100%;
   height: auto;
-  vertical-align: middle; 
+  vertical-align: middle;
 }
 
 

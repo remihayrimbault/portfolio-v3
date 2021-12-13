@@ -1,19 +1,285 @@
-html,
-body,
-#game-container {
-  margin: 0;
-  padding: 0;
+header {
+  width: 100%;
+  height: 92vh;
 }
 
-#game-container {
-  min-width: 100vw;
-  min-height: 100vh;
+header > ul {
+  display: flex;
+  margin-top: 60px;
+  margin-left: 30px;
+  list-style: none;
+}
+
+header > ul > li {
+  margin: 0 40px;
+  font-size: 22px;
+}
+
+header > ul > li:nth-child(1) {
+  margin-left: 0;
+}
+
+header > ul > li > a {
+  text-decoration: none;
+  color: white;
+  position: relative;
+}
+
+header > ul > li > a:after {
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  height: 3px;
+  bottom: -9px;
+  width: 0;
+  display: block;
+  content: " ";
+  left: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+header > ul > li > a:hover:after {
+  width: 100%;
+}
+
+header > h1 {
+  color: white;
+  font-size: 100px;
+  text-align: right;
+  margin-right: 100px;
+  pointer-events: none;
+  margin-top: 100px;
+  margin-bottom: 0;
+  user-select: none;
+  line-height: 1;
+  text-shadow: 2px 2px black;
+}
+
+header > h1 > span {
+  display: block;
+}
+
+header > h2 {
+  color: var(--yellow);
+  pointer-events: none;
+  font-size: 50px;
+  text-align: right;
+  margin-right: 100px;
+  user-select: none;
+  text-shadow: 2px 2px black;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: var(--blue);
+}
+
+#me {
+  height: 100vh;
+  width: 100%;
+  background: var(--green);
+}
+
+#me > h2 {
+  color: white;
+  text-align: center;
+  padding-top: 80px;
+  font-size: 35px;
+  margin: 0;
+  text-shadow: 2px 2px black;
+}
+
+#projects {
+  height: 100vh;
+  width: 100%;
+  background: var(--yellow);
+}
+
+#projects > h2 {
+  color: white;
+  text-align: center;
+  padding-top: 80px;
+  font-size: 35px;
+  margin: 0;
+  text-shadow: 2px 2px black;
+}
+
+#projects > .card_container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 50px auto;
+  flex-wrap: wrap;
+}
+
+.card {
+  min-width: 280px;
+  max-width: 280px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px black;
+}
+
+#projects > .card_container > .card:nth-child(2) {
+  transform: translateY(60px);
+}
+
+.card > h3{
+  margin: 0 0 20px;
+}
+
+.card > img{
+  width: 80%;
+}
+
+.card > figcaption > .hashtag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 10px auto;
+}
+
+.card > figcaption > .hashtag > a {
+  cursor: pointer;
+  margin: 0;
+}
+
+.card > .link {
+  display: none;
+}
+
+.card > .bigdescription {
+  display: none;
+}
+
+.card > .tools {
+  display: none;
+}
+
+.card > figcaption > .hashtag > p {
+  margin: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-#game-container>canvas {
-  border-radius: 5px;
+.card > figcaption > .description {
+  width: 80%;
+  margin: 0 auto;
+  text-justify: auto;
+  font-size: 12px;
+}
+
+#projects > .seemore {
+  margin: 120px auto 0;
+  display: block;
+  background: black;
+  border-radius:5px;
+  color: white;
+  width: 100px;
+  text-align: center;
+  padding: 15px 25px;
+  font-size: 18px;
   cursor: pointer;
+}
+
+#remstagram {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  bottom: 0;
+  z-index:10;
+  background: white;
+  display: flex;
+  align-items: center;
+  width: 400px;
+  flex-direction: column;
+  max-height: 100vh;
+  overflow-y: scroll;
+  transition: all 0.3s ease-in-out;
+}
+
+#remstagram > #close {
+  top: 30px;
+  right: 30px;
+  z-index: 12;
+  position: absolute;
+  width: 5%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+#remstagram > #close:hover {
+  transform: rotate(90deg);
+}
+
+#remstagram > .remstagramImg {
+  width: 40%;
+  margin: 50px auto 10px;
+}
+
+#show {
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  z-index: 20;
+  height: 100vh;
+  right: 0;
+  bottom: -100vh;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+#show > #showClose {
+  width: 30px;
+  display: block;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+#show > #showClose:hover {
+  transform: rotate(90deg);
+}
+
+#show > h2 {
+  color: white;
+  text-align: center;
+  font-size: 35px;
+}
+
+#show > p {
+  color: white;
+  width: 60%;
+  margin: 0 auto 50px;
+}
+
+#show > a {
+  width: 150px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  margin: 0 auto 50px;
+  padding: 10px 20px;
+  display: block;
+  cursor: pointer;
+  border: 2px solid white;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+#show > a:hover {
+  background: none;
+  color: white;
 }
